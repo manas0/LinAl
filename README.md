@@ -5,6 +5,6 @@ The current work contains:
 
 Further plan is to include:
 ~~1. Determinant of a Matrix~~ 
-2. Inverse of a Matrix &#9745
+2. Inverse of a Matrix &#9745;
 3. Solving a system of Linear Equeations 
 4. Singular Value Decomposition (SVD)
