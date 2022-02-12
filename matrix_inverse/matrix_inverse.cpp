@@ -28,7 +28,7 @@ void findAndSwapWithNonZeroEntryRow(vector<vector<double>> &matrix, vector<vecto
 void makeCellOneAndRestEntriesZero(vector<vector<double>> &matrix, vector<vector<double>> &inverseMatrix, int n, int idx)
 {
 	double value = matrix[idx][idx];
-	for(int i = idx ; i < n ; i++)
+	for(int i = 0 ; i < n ; i++)
 	{
 		matrix[idx][i] /= value;
 		inverseMatrix[idx][i] /= value;
@@ -41,7 +41,7 @@ void makeCellOneAndRestEntriesZero(vector<vector<double>> &matrix, vector<vector
 			continue;
 		}
 		value = matrix[i][idx];
-		for(int j = idx+1 ; j < n ; j++)
+		for(int j = 0 ; j < n ; j++)
 		{
 			matrix[i][j] -= value*matrix[idx][j];
 			inverseMatrix[i][j] -= value*inverseMatrix[idx][j];
@@ -109,11 +109,12 @@ int main()
 		}
 		matrix.push_back(row);
 	}
-	bool doesMatrixInverseExist;
-	vector<vector<double>> inverseMatrix;
-	pair<bool , vector<vector<double>>> {doesMatrixInverseExist, inverseMatrix} = findMatrixInverse(matrix);
+	pair<bool , vector<vector<double>>> matrixInverse = findMatrixInverse(matrix);
+	bool doesMatrixInverseExist = matrixInverse.first;
+	vector<vector<double>> inverseMatrix = matrixInverse.second;
 	if(doesMatrixInverseExist)
 	{
+		cout<<"Inverse of the matrix is:\n";
 		for(int i = 0 ; i < n ; i++)
 		{
 			for(int j = 0 ; j < n ; j++)
@@ -123,6 +124,9 @@ int main()
 			cout<<'\n';
 		}
 	}
+	else
+	{
+		cout<<"Inverse of the matrix does not exist.\n";
+	}
 	return 0;
 }
-
