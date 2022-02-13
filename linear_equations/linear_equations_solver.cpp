@@ -1,7 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-void swapRows(vector<vector<double>> &A, vector<double> B, int n, int row1 , int row2)
+void swapRows(vector<vector<double>> &A, vector<double> &B, int n, int row1 , int row2)
 {
 	double temp;
 	for(int i = 0 ; i < n ; i++)
