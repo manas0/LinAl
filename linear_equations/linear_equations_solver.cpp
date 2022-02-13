@@ -1,15 +1,18 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-void swapRows(vector<vector<double>> &matrix, vector<double> B, int n, int row1 , int row2)
+void swapRows(vector<vector<double>> &A, vector<double> B, int n, int row1 , int row2)
 {
 	double temp;
 	for(int i = 0 ; i < n ; i++)
 	{
-		temp = matrix[row1][i];
-		matrix[row1][i] = matrix[row2][i];
-		matrix[row2][i] = temp;
+		temp = A[row1][i];
+		A[row1][i] = A[row2][i];
+		A[row2][i] = temp;
 	}
+    temp = B[row1];
+    B[row1] = B[row2];
+    B[row2] = temp;
 }
 
 void findAndSwapWithNonZeroEntryRow(vector<vector<double>> &A, vector<double> &B, int n, int start)
